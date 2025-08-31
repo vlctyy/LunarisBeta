@@ -1,110 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lunaris Lite</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lunaris Lite - Phase 1</title>
   <style>
     /* Background */
     body {
       margin: 0;
-      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: url('https://i.ibb.co/kDg0cCt/bluegoldbg.jpg') no-repeat center center fixed;
+      background-size: cover;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-      font-family: "Segoe UI", sans-serif;
+      height: 100vh;
     }
 
-    /* Frosted glass container */
-    .glass-container {
-      width: 320px;
+    /* Sidebar */
+    .sidebar {
+      width: 220px;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(15px);
+      display: flex;
+      flex-direction: column;
       padding: 20px;
-      border-radius: 20px;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      color: white;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 20px;
+      font-size: 20px;
       text-align: center;
-      color: #fff;
+      color: #FFD700;
     }
 
-    /* Title */
-    .glass-container h1 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      background: linear-gradient(90deg, #00c6ff, #ffd700);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    /* Button */
-    .btn {
-      display: inline-block;
-      padding: 12px 20px;
-      margin: 12px 0;
-      border-radius: 12px;
-      border: none;
-      font-size: 1rem;
-      font-weight: bold;
-      cursor: pointer;
-      background: linear-gradient(90deg, #00c6ff, #ffd700);
-      color: #000;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    /* Dropdown */
-    .dropdown {
-      margin-top: 15px;
+    .sidebar a {
+      text-decoration: none;
+      color: white;
+      margin: 10px 0;
       padding: 10px;
-      border-radius: 12px;
-      border: none;
-      font-size: 1rem;
-      outline: none;
-      background: rgba(255, 255, 255, 0.2);
-      color: #fff;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      cursor: pointer;
+      border-radius: 10px;
+      transition: background 0.2s ease;
     }
 
-    .dropdown option {
-      background: #1c1c1c;
-      color: #fff;
+    .sidebar a:hover {
+      background: rgba(255, 215, 0, 0.2);
+    }
+
+    /* Main Content */
+    .content {
+      flex: 1;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      margin: 20px;
+      color: white;
+      overflow-y: auto;
+    }
+
+    .content h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #FFD700;
+    }
+
+    .tip {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 12px;
+    }
+
+    button {
+      background: #FFD700;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #e6c200;
     }
   </style>
 </head>
 <body>
-  <div class="glass-container">
-    <h1>Lunaris Lite</h1>
-    <button class="btn" onclick="optimizeRoblox()">Optimize Roblox</button>
-    
-    <div>
-      <label for="fps" style="display:block; margin:10px 0 5px;">Set FPS Limit:</label>
-      <select id="fps" class="dropdown" onchange="setFps()">
-        <option value="60">60 FPS</option>
-        <option value="75">75 FPS</option>
-        <option value="90">90 FPS</option>
-        <option value="120">120 FPS</option>
-      </select>
+  <div class="sidebar">
+    <h2>Lunaris Lite</h2>
+    <a href="#">Dashboard</a>
+    <a href="#">Fflags (Coming soon)</a>
+    <a href="#" onclick="copyDiscord()">Support</a>
+  </div>
+
+  <div class="content">
+    <h1>Optimize Roblox - Tips</h1>
+
+    <div class="tip">
+      <h3>1. Enable Developer Options</h3>
+      <p>Go to Settings → About Phone → Tap Build Number 7 times to unlock Developer Options. From there, you can adjust animation speed and GPU acceleration.</p>
     </div>
+
+    <div class="tip">
+      <h3>2. Reduce Animation Scales</h3>
+      <p>Inside Developer Options, set Window Animation Scale, Transition Animation Scale, and Animator Duration Scale to 0.5x or Off for better responsiveness.</p>
+    </div>
+
+    <div class="tip">
+      <h3>3. Force GPU Rendering</h3>
+      <p>Enable "Force GPU Rendering" in Developer Options to improve Roblox graphics performance.</p>
+    </div>
+
+    <div class="tip">
+      <h3>4. Limit Background Processes</h3>
+      <p>Set background process limit to 2–3 in Developer Options to give Roblox more system memory.</p>
+    </div>
+
+    <button onclick="copyDiscord()">Copy Discord Support Link</button>
   </div>
 
   <script>
-    function optimizeRoblox() {
-      alert("🔧 Roblox optimization started!");
-      // Future: Hook into Lunaris Lite optimization logic
-    }
-
-    function setFps() {
-      const fps = document.getElementById("fps").value;
-      alert("🎮 FPS limit set to " + fps);
-      // Future: Apply FPS settings to Roblox launch flags
+    function copyDiscord() {
+      const discordInvite = "https://discord.gg/your-server"; // Replace with real invite
+      navigator.clipboard.writeText(discordInvite)
+        .then(() => alert("Discord server link copied to clipboard!"))
+        .catch(err => console.error("Error copying: ", err));
     }
   </script>
 </body>
